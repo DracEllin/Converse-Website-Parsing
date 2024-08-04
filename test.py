@@ -59,11 +59,11 @@ def get_data(html):
 
     product_info_price = soup.find('div', class_='product-info-price')
     price = product_info_price.find('span', class_='price-wrapper').text.strip()
-    # print(price)
+    print(price)
 
     amtheme_product_wrap = soup.find('div', class_='amtheme-product-wrap')
     descriptions = amtheme_product_wrap.find('div', class_='product-attribute--list').text.strip('')
-    # print(descriptions)
+    print(descriptions)
 
     # product_media = soup.find('div', class_='product media')
     # div_img = product_media.find('div', class_='fotorama__stage__frame fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img fotorama__fade-rear magnify-wheel-loaded fotorama__active')
@@ -93,19 +93,15 @@ def save_to_exel(data):
 
 def main():
     URL = 'https://converse.ca/men/shoes/all-shoes/'
-    all_data = []
     for i in range(1, 12):
         html = get_html(URL + f'?p={i}')
         links = get_glide_link(html)
+        all_data = []
         for link in links:
-            time.sleep(5)
+            time.sleep(3)
             html2 = get_html(link)
-            all_data.append(get_data(html2))
-            print(len(all_data))
-    save_to_exel(all_data)
-        
-
-        
+            all_data.append.get_data(html2)
+        print(all_data)
         
             
         
